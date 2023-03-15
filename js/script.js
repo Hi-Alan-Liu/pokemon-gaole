@@ -1,8 +1,10 @@
 let tableData = {};
+let pokemon = [];
 
 window.onload = async () => {
     await getJSON();
     await onloadTable();
+    await onloadSideBar();
     loadingComplete();
 }
 
@@ -19,6 +21,24 @@ let getJSON = () => {
 
 function loadingComplete() {
     document.getElementById('loading').style.display = "none";
+
+    const inputs = document.querySelectorAll('.form-check-input');
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener("click", function() {
+            var name = inputs[i].value
+            if (pokemon.find(e => e == `${name}`) == undefined) {
+                pokemon.push(name);
+            } else {
+                pokemon.splice(pokemon.indexOf(name), 1);
+            }
+
+            var fields = document.getElementsByClassName(name);
+            for (let i = 0; i< fields.length; i++ )
+            {
+                fields[i].classList.toggle('pick');
+            }
+        });
+    }
 }
 
 function onloadTable(){
@@ -31,9 +51,53 @@ function onloadTable(){
         for (var j = 0; j < keys.length; j++)
         {
             var star = row[keys[j]][0];
-            htmlData += `<td class="${row[keys[j]]} star_${star}"> ${row[keys[j]]} </td>`;
+            htmlData += `<td class="${row[keys[j]]} star-${star}"> ${row[keys[j]]} </td>`;
         }
         htmlData += '</tr>'
     }
     table.innerHTML = htmlData;
+}
+
+function onloadSideBar() {
+    for (var n = 5;  n > 0; n--)
+    {
+        var arr = [];
+        for(var i = 0; i < tableData.length; i++){
+            var row = tableData[i];
+            var keys = Object.keys(row)
+            for (var j = 0; j < keys.length; j++)
+            {
+                var star = row[keys[j]][0];
+                var name = row[keys[j]];
+                if (star == n && arr.find(e => e == `${name}`) == undefined )
+                {
+                    createSideBarList(n, name);
+                    arr.push(`${name}`);
+                }
+            }
+        }
+    }
+}
+
+function createSideBarList(id, name) {
+    var ul = document.getElementById(`sidebar-star-${id}`);
+
+    var li = document.createElement("li");
+    li.className = "list-group-item";
+
+    var input = document.createElement("input");
+    input.className  = "form-check-input me-1";
+    input.type = "checkbox";
+    input.id = `checkbox-${name}`;
+    input.value = `${name}`;
+    li.appendChild(input);
+
+    var label = document.createElement("label");
+    label.innerHTML = `${name}`;
+    label.className = "form-check-label stretched-link";
+    label.htmlFor = `checkbox-${name}`;
+
+    li.appendChild(label);
+
+    ul.appendChild(li);
 }
