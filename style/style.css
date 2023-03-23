@@ -16,7 +16,8 @@
 }
 
 .star-5 {
-    color: red;
+    background-color: red!important;
+    color: white;
 }
 
 .star-4 {
