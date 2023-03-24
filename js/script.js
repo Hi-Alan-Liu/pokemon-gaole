@@ -71,7 +71,7 @@ function onloadTable() {
         {
             var arr = row[keys[j]].split("-");
             var star = arr[0];
-            var name = row[keys[j]];
+            var name = star != 5 ? row[keys[j]] : arr[1];
             htmlData += `<td class="pokemon ${row[keys[j]]} star-${star}"> ${name} </td>`;
         }
         htmlData += `<td class="number"> ${number} </td></tr>`;
