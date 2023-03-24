@@ -66,15 +66,15 @@ function onloadTable() {
     for(var i = 0; i < tableData.length; i++){
         var row = tableData[i];
         var keys = Object.keys(row)
-        htmlData += `<tr><td> ${number} </td>`;
+        htmlData += `<tr><td class="number"> ${number} </td>`;
         for (var j = 0; j < keys.length; j++)
         {
             var arr = row[keys[j]].split("-");
             var star = arr[0];
             var name = row[keys[j]];
-            htmlData += `<td class="${row[keys[j]]} star-${star}"> ${name} </td>`;
+            htmlData += `<td class="pokemon ${row[keys[j]]} star-${star}"> ${name} </td>`;
         }
-        htmlData += `<td> ${number} </td></tr>`;
+        htmlData += `<td class="number"> ${number} </td></tr>`;
         number -= 1;
     }
     table.innerHTML = htmlData;
