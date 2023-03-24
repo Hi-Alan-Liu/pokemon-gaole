@@ -59,13 +59,14 @@ function starCount(starNum, num) {
     }
 }
 
-function onloadTable(){
+function onloadTable() {
     var table = document.getElementById("pokemonTable");
     var htmlData = '';
+    var number = tableData.length;
     for(var i = 0; i < tableData.length; i++){
         var row = tableData[i];
         var keys = Object.keys(row)
-        htmlData += '<tr>'
+        htmlData += `<tr><td> ${number} </td>`;
         for (var j = 0; j < keys.length; j++)
         {
             var arr = row[keys[j]].split("-");
@@ -73,7 +74,8 @@ function onloadTable(){
             var name = row[keys[j]];
             htmlData += `<td class="${row[keys[j]]} star-${star}"> ${name} </td>`;
         }
-        htmlData += '</tr>'
+        htmlData += `<td> ${number} </td></tr>`;
+        number -= 1;
     }
     table.innerHTML = htmlData;
 }
