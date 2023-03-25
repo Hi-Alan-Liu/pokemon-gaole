@@ -62,21 +62,29 @@ table .pokemon {
     width: 100px;
 }
 
-.h-8 {
-    height: 8rem;
+@media all and (max-width: 991px) {
+
+    .container-fluid {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important; 
+    }
+
+    nav a {
+        font-size: 50px !important;
+    }
+
+    .h-8 {
+        height: 8rem;
+    }
+
+    li {
+        font-size: 24px;
+        letter-spacing: 5px;
+    }
+
 }
 
-nav a {
-    font-size: 50px !important;
-}
 
-.container-fluid {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important; 
-}
 
-li {
-    font-size: 24px;
-    letter-spacing: 5px;
-}
+
