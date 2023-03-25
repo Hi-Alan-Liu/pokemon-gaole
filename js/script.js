@@ -31,10 +31,8 @@ function eventListener() {
             var name = inputs[i].value
             if (pokemon.find(e => e == `${name}`) == undefined) {
                 pokemon.push(name);
-                starCount(name[0], 1);
             } else {
                 pokemon.splice(pokemon.indexOf(name), 1);
-                starCount(name[0], -1);
             }
 
             var fields = document.getElementsByClassName(name);
@@ -43,19 +41,6 @@ function eventListener() {
                 fields[i].classList.toggle('pick');
             }
         });
-    }
-}
-
-function starCount(starNum, num) {
-    if (starNum == 4) {
-        star4 += num;
-        document.getElementById("star-4").innerHTML = star4;
-    } else if (starNum == 3) {
-        star3 += num;
-        document.getElementById("star-3").innerHTML = star3;
-    } else if (starNum == 2) {
-        star2 += num;
-        document.getElementById("star-2").innerHTML = star2;
     }
 }
 
