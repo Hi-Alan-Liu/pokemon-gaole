@@ -20,12 +20,14 @@
 }
 
 .star-5 {
-    background-color: red!important;
+    background-color: purple!important;
     color: white;
+    text-align: center;
 }
 
 .star-4 {
-    color: blue;
+    color: cornflowerblue;
+    font-weight: bold;
 }
 
 .offcanvas-body {
@@ -33,7 +35,7 @@
 }
 
 .pick {
-    background-color: #A9DBDC !important;
+    background-color: khaki !important;
 }
 
 table {
