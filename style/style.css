@@ -30,6 +30,10 @@
     font-weight: bold;
 }
 
+.star-3 {
+    color: #E6984E;
+}
+
 .offcanvas-body {
     flex-direction: column;
 }
