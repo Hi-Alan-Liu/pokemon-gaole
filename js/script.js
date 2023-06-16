@@ -119,9 +119,9 @@ function onloadSideBar() {
             var keys = Object.keys(row)
             for (var j = 0; j < keys.length; j++)
             {
-                const arr = row[keys[j]].split("-");
-                const star = arr[0];
-                const name = `${arr[0]}-${arr[1]}`;
+                const nameArr = row[keys[j]].split("-");
+                const star = nameArr[0];
+                const name = `${nameArr[0]}-${nameArr[1]}`;
                 if (star == n && arr.find(e => e == `${name}`) == undefined )
                 {
                     createSideBarList(n, name);
