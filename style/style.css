@@ -38,6 +38,11 @@
     flex-direction: column;
 }
 
+.lucky {
+    background: coral!important;
+    color: black;
+}
+
 .pick {
     background-color: khaki !important;
 }

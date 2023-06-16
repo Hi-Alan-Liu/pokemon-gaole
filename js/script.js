@@ -89,8 +89,10 @@ function onloadTable() {
             const arr = row[keys[j]].split("-");
             const star = arr[0];
             const name = arr[1];
+            const special = arr[2];
             const size = star != 5 && name.length > 4 ? 12 : 16;
-            const pokemonData = `<td class="pokemon ${row[keys[j]]} star-${star}">${
+            const lucky = special == "R" ? "lucky" : ""
+            const pokemonData = `<td class="pokemon ${row[keys[j]]} star-${star}" ${lucky}>${
                 star != 5 ? star + "-" : ""
             }<span class="font-${size}">${name}</span></td>`;
             rowData.push(pokemonData);
@@ -118,7 +120,7 @@ function onloadSideBar() {
             for (var j = 0; j < keys.length; j++)
             {
                 var star = row[keys[j]][0];
-                var name = row[keys[j]];
+                var name = `${row[keys[j]][0]}-${row[keys[j]][1]}`;
                 if (star == n && arr.find(e => e == `${name}`) == undefined )
                 {
                     createSideBarList(n, name);
